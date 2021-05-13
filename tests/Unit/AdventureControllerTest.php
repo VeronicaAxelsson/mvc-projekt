@@ -52,9 +52,22 @@ class AdventureControllerTest extends TestCase
      * Check that the end action returns a response.
      * @runInSeparateProcess
      */
+    public function testNextRoomActionWithRoomId4()
+    {
+        $res = $this->post('/adventure/room', ['id' => 4]);
+
+        /* Test status code*/
+        $this->assertEquals(302, $res->getStatusCode());
+    }
+
+
+    /**
+     * Check that the end action returns a response.
+     * @runInSeparateProcess
+     */
     public function testQuestAction()
     {
-        $res = $this->get('/adventure/quest', ['id' => 1]);
+        $res = $this->get('/adventure/quest', ['id' => 4]);
 
         /* Test status code*/
         $this->assertEquals(200, $res->getStatusCode());
