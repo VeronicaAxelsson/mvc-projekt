@@ -20,7 +20,7 @@ Route::get('/', [IndexController::class, 'index']);
 Route::prefix('adventure')->group(function () {
     Route::get('/', [AdventureController::class, 'index'])->name('adventure');
     Route::get('/quest', [AdventureController::class, 'quest'])->name('quest');
-    Route::post('/room', [AdventureController::class, 'nextRoom']);
+    Route::post('/room', [AdventureController::class, 'nextRoom'])->name('room');
     Route::post('/roll', [AdventureController::class, 'playAgainstLion']);
 });
 // Route::get('adventure', [AdventureController::class, 'index']);
