@@ -5,9 +5,10 @@
  */
 
 declare(strict_types=1);
-// var_dump($data);
+
+var_dump($data);
 $rooms = $data['rooms'] ?? [];
-$roomId = $data['roomId'] ?? "";
+// $roomId = $data['roomId'] ?? "";
 $diceHand = $data['diceHand'] ?? false;
 $classes = $data['classes'] ?? [];
 $diceSum = $data['diceSum'] ?? null;
@@ -20,7 +21,7 @@ $roomAndPath = $data['roomAndPath'] ?? [];
 // var_dump($rooms);
 ?>
     <?php foreach ($rooms as $room) {
-    $img =  $room['img'] ?>
+        $img =  $room['img'] ?>
     <div class="adventure-room">
         <h1><?= $room['name'] ?></h1>
         <img src="{{ url('img/'). '/'.$img }}" alt="<?= $room['img'] ?>">
@@ -28,7 +29,7 @@ $roomAndPath = $data['roomAndPath'] ?? [];
     </div>
     <?php } ?>
 
-    <?php if ($diceHand): ?>
+    <?php if ($diceHand) : ?>
         <div class="dice">
         <?php
         foreach ($classes as $class) {
@@ -41,10 +42,8 @@ $roomAndPath = $data['roomAndPath'] ?? [];
         <form method="post" action="roll">
             @csrf
             <input type="submit" name="submit" value="<?=$message?>">
-            <input type="hidden" name="diceSum" value="<?=$diceSum?>">
         </form>
-    <?php else: ?>
-
+    <?php else : ?>
         <?php foreach ($roomAndPath as $room) { ?>
     <form method="post" action="room">
         @csrf
@@ -52,8 +51,8 @@ $roomAndPath = $data['roomAndPath'] ?? [];
         <input type="hidden" name="id" value="<?=$room['room_2']?>">
     </form>
         <?php } ?>
-<?php endif; ?>
+    <?php endif; ?>
 
-<?php if ($rooms[0]['name'] === 'Game over'): ?>
+<?php if ($rooms[0]['name'] === 'Game over' || $rooms[0]['name'] === 'Skatten') : ?>
     <a href="{{url('/adventure')}}">Tillbaka till start</a>
 <?php endif; ?>

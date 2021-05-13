@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Models\Room;
-use App\Models\RoomToRoom;
+// use App\Models\Room;
+// use App\Models\RoomToRoom;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Classes\Dice\DiceHand;
+use App\Classes\Adventure\Adventure;
 
 /**
  * Controller for the index route.
@@ -16,83 +17,69 @@ use App\Classes\Dice\DiceHand;
 class AdventureController extends Controller
 {
     /**
-     * Display all rooms
+     * Show adventure index page
      *
      * @return \Illuminate\Contracts\View\View
      */
-
-    public function index($value='')
+    public function index()
     {
-        $data['adventure'] = false;
-        return view('/adventure-index', ['data' => $data]);
-    }
-
-    public function quest(Request $request)
-    {
-        $roomId = $request->query('id') ?? 1;
-        $data['adventure'] = true;
-        if ($roomId === '4') {
-            $data['message'] = 'Du börjar kasta';
-            $data['diceHand'] = true;
-            $diceHand = new DiceHand(2);
-            $diceHand->roll();
-            $data['classes'] = $diceHand->graphic();
-            if ($request->query('throw') === 'player') {
-                $data['message'] = 'Ge tärningarna till lejonet';
-                $data['diceSum'] = $diceHand->sum();
-            }
+        if (session()->exists('adventure')) {
+            session()->forget('adventure');
         }
-        $data['roomAndPath'] = $this->getRoomAndPath($roomId);
-        $data['rooms'] = $this->getOneRoom($roomId);
-        return view('/adventure-index', ['data' => $data]);
-    }
-
-    public function nextRoom(Request $request)
-    {
-        $id = $request->input('id');
-        return redirect()->route('quest', ['id' => $id]);
-    }
-
-    public function roll(Request $request)
-    {
-        if ($request->input('diceSum') === null) {
-            return redirect()->route('quest', ['id' => 4, 'throw' => 'player']);
-        }
-        $diceHand = new DiceHand(2);
-        $diceHand->roll();
-        $sum = $diceHand->sum();
-        if ($sum > $request->input('diceSum')) {
-            return redirect()->route('quest', ['id' => 5]);
-        }
-        return redirect()->route('quest', ['id' => 8]);
+        return view('/adventure-index', ['data' => []]);
     }
 
     /**
-     * Get all rooms
+     * Show room
      *
-     * @return Array
+     * @return \Illuminate\Contracts\View\View
      */
-    public function allRooms()
+    public function quest(Request $request)
     {
-        $data = [];
-        $rooms = Room::all()
-               ->toArray();
-        $data['rooms'] = $rooms;
-        return $data;
+        if (session()->missing('adventure')) {
+            session()->put('adventure', new Adventure());
+        }
+
+        $roomId = $request->query('id') ?? 1;
+
+        if ($roomId === '4') {
+            $turn = $request->query('throw');
+            $data = session('adventure')->rollDiceAgainstLion($turn);
+            return view('/adventure-index', ['data' => $data]);
+        }
+
+        $data = session('adventure')->playGame($roomId);
+        return view('/adventure-index', ['data' => $data]);
     }
 
-    public function getOneRoom($roomId=1)
+    /**
+     * Get next room id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function nextRoom(Request $request)
     {
-        return Room::where('id', $roomId)
-            ->get()
-            ->toArray();
+        $roomId = $request->input('id');
+        return redirect()->route('quest', ['id' => $roomId]);
     }
 
-    public function getRoomAndPath($roomId=1)
+    /**
+     * Play against lion and return room id depending on outcome
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function playAgainstLion()
     {
-        return RoomToRoom::where('room_1', $roomId)
-            ->addSelect(['room' => Room::select('id')
-            ->whereColumn('id', 'mvc_room_to_room.room_1')
-        ])->get()->toArray();
+        $data = session('adventure')->getData();
+        $playerSum = $data['playerSum'] ?? null;
+        if ($playerSum === null) {
+            return redirect()->route('quest', ['id' => 4, 'throw' => 'player']);
+        }
+
+        $lionSum = session('adventure')->rollDiceAndGetSum(2);
+        if ($lionSum > $playerSum) {
+            return redirect()->route('quest', ['id' => 8]);
+        }
+        return redirect()->route('quest', ['id' => 5]);
     }
 }

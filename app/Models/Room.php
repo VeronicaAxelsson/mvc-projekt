@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property string $description
  * @property string $img
+ * @method where()
+ * @method select()
  */
 class Room extends Model
 {
