@@ -52,3 +52,11 @@ The following database models exists.
 |------------------------------------|-------------|
 | `App\Models\Room`            | Model representing the rooms in the adventure game.  |
 | `App\Models\RoomToRoom`           | Model representing the paths between the rooms. |
+
+## Controllers
+The following controllers exists.
+
+| Model                       | Description |
+|------------------------------------|-------------|
+| `App\Http\Controllers\IndexController`            | Controller for welcome page.  |
+| `App\Http\Controllers\AdventureController`            | Controller for the Adventure Game. |
