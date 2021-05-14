@@ -8,6 +8,8 @@
 
 This is a protected created as examination in the course DV1608 V21 lp4 Objektorienterade webbteknologier, Webbprogrammerin Blekinge Tekniska Högskola.
 (bild från spelet)
+![Game](public/img/for_readme.jpg)
+
 
 
 
