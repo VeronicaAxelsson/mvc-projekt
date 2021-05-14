@@ -18,7 +18,6 @@ footer {
     font-family: 'Julius Sans One', sans-serif; */
 html {
     overflow-y: scroll;
-    overflow-x: scroll;
 }
 
 * {
@@ -35,8 +34,17 @@ h6 {
     font-weight: normal;
 }
 
+p,
+h1,
+h2,
+h3,
+a {
+    color: #dddddd;
+}
+
+
 h1 {
-    font-size: 3rem;
+    font-size: 2.4rem;
 }
 
 html {
@@ -44,19 +52,21 @@ html {
 }
 
 p {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     line-height: 1.2;
 }
 
 a {
     text-decoration: none;
-    color: #000;
+    /* color: #000; */
+    border-bottom: 1px solid #006601;
+    font-size: 1.2rem;
 }
 
 
 body {
     margin: 0;
-    background: #fcfcfc;
+    background: #0f0f0f;
     display: grid;
     grid-template-columns: 1fr;
     min-height: 100vh;
@@ -69,6 +79,7 @@ header {
     flex-direction: column;
     align-items: center;
     font-size: 1.6rem;
+    margin-top: 1em;
 }
 
 main {
@@ -86,12 +97,12 @@ footer {
     grid-row: span 1;
     align-self: center;
     text-align: center;
-    border-top: 1px solid #000;
+    border-top: 1px solid #006601;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
     font-style: italic;
-    font-size: 1em;
+    font-size: 0.8rem;
     min-height: 4em;
 }
 
@@ -101,30 +112,38 @@ footer {
 
 nav a {
     margin: 0 1em;
+    border: none;
 }
 
-li {
+nav li {
     list-style: none;
     margin-bottom: 1em;
     font-size: 1.2em;
 }
 
-a {
+nav a {
     display: inline-block;
     text-decoration: none;
 }
 
-a::after {
+nav a::after {
     content: '';
     display: block;
     width: 0;
     height: 1px;
-    background: #000;
+    background: #006601;
     transition: width 0.3s;
 }
 
-a:hover::after {
+nav a:hover::after {
     width: 100%;
+}
+
+.path {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
 }
 
 label {
@@ -141,11 +160,13 @@ input[type=submit] {
     padding: 0.3em 0.5em;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 1.2rem;
     margin: 0.5em;
     cursor: pointer;
-    border: 3px solid #3d3d3d;
+    border: 3px solid #006601;
+    background-color: #1e1d1d;
+    color: #dddddd;
 }
 
 .points {
@@ -184,7 +205,25 @@ table button {
 }
 
 .adventure-room img {
-    width: 300px;
+    width: 50%;
+}
+
+.adventure-room p {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.adventure-room {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #1e1d1d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+    max-width: 70%;
+    padding: 2em;
+    text-align: center;
 }
 
 /**
