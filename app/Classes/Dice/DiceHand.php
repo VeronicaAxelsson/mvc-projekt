@@ -29,7 +29,7 @@ class DiceHand
         $this->dice = [];
 
         for ($i = 0; $i < $dice; $i++) {
-            $this->dice[] = new GraphicalDice();
+            $this->dice[] = new Dice();
         }
     }
     /**
@@ -88,15 +88,5 @@ class DiceHand
             $this->sum += $roll;
         }
         return $this->sum;
-    }
-
-    /**
-    * Get average of roll.
-    *
-    * @return int with sum of roles.
-    */
-    public function average(): int
-    {
-        return $this->sum / 5;
     }
 }

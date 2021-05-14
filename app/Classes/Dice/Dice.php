@@ -55,4 +55,14 @@ class Dice
     {
         return $this->sides;
     }
+
+    /**
+     * Get a graphic value of the last rolled dice.
+     *
+     * @return string as graphical representation of last rolled dice.
+     */
+    public function graphic()
+    {
+        return "dice-" . $this->getLastRoll();
+    }
 }
