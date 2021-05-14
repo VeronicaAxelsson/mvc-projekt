@@ -20,6 +20,8 @@ The main focus of this project is an adventure game, where you travel through th
 * [Play game](#play-game)
 * [Development](#development)
 * [Class, interface, trait](#class-interface-trait)
+* [Models](#models)
+* [Controllers](#controllers)
 
 
 
