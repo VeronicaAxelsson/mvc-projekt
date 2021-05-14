@@ -27,7 +27,7 @@ class DiceHandTest extends TestCase
     public function testCreateDiceHandWithNoArgument()
     {
         $res = $this->diceHand->dice();
-        $this->assertContainsOnlyInstancesOf(GraphicalDice::class, $res);
+        $this->assertContainsOnlyInstancesOf(Dice::class, $res);
         $this->assertCount(5, $res);
     }
 
@@ -41,7 +41,7 @@ class DiceHandTest extends TestCase
         $this->assertInstanceOf("\App\Classes\Dice\DiceHand", $diceHand);
 
         $res = $diceHand->dice();
-        $this->assertContainsOnlyInstancesOf(GraphicalDice::class, $res);
+        $this->assertContainsOnlyInstancesOf(Dice::class, $res);
         $this->assertCount(2, $res);
     }
 
