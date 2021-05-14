@@ -22,7 +22,7 @@ class IndexController extends Controller
 
         return view('index', [
             "header" => "Index page",
-            'message' => $message ?? "Hello, this is the index page, rendered as a layout."
+            'message' => $message ?? "Detta är en webbsida för mitt slutprojekt i kursen mvc. Gå till Äventyr för att testa mitt äventyrsspel."
         ]);
     }
 }

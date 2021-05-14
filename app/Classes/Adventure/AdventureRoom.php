@@ -4,11 +4,12 @@ namespace App\Classes\Adventure;
 
 use App\Models\Room;
 use App\Models\RoomToRoom;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  *  Adventure class
  */
-class AdventureRoom
+trait AdventureRoom
 {
     /**
      * Get one rooms
@@ -17,9 +18,8 @@ class AdventureRoom
      */
     public function getOneRoom($roomId = 1): array
     {
-        return Room::where('id', $roomId)
-            ->get()
-            ->toArray();
+        $room = new Room();
+        return $room->findWherePrimaryKey($roomId)->toArray();
     }
 
     /**
@@ -29,9 +29,10 @@ class AdventureRoom
      */
     public function getRoomAndPath($roomId = 1): array
     {
-        return RoomToRoom::where('room_1', $roomId)
-            ->addSelect(['room' => Room::select('id')
-            ->whereColumn('id', 'mvc_room_to_room.room_1')
-        ])->get()->toArray();
+        $room = new Room();
+        return $room->findWherePrimaryKey($roomId)
+            ->paths()
+            ->get()
+            ->toArray();
     }
 }

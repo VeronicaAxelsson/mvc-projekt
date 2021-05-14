@@ -10,8 +10,9 @@ use App\Classes\Adventure\AdventureRoom;
 /**
  *  Adventure class
  */
-class Adventure extends AdventureRoom
+class Adventure
 {
+    use AdventureRoom;
 
     private array $data = [];
 
@@ -25,7 +26,7 @@ class Adventure extends AdventureRoom
         $this->data = [];
         $this->data['adventure'] = true;
         $this->data['roomAndPath'] = $this->getRoomAndPath($roomId) ?? [];
-        $this->data['rooms'] = $this->getOneRoom($roomId) ?? [];
+        $this->data['room'] = $this->getOneRoom($roomId) ?? [];
         return $this->data;
     }
 

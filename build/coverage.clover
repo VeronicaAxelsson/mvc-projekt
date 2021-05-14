@@ -1,42 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1620909377">
-  <project timestamp="1620909377">
+<coverage generated="1620992580">
+  <project timestamp="1620992580">
     <file name="C:\Users\Admin\dbwebb-kurser\mvc\me\proj\app\Classes\Adventure\Adventure.php">
       <class name="App\Classes\Adventure\Adventure" namespace="global">
         <metrics complexity="5" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="10" elements="24" coveredelements="13"/>
       </class>
-      <line num="23" type="method" name="playGame" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="25" type="stmt" count="1"/>
+      <line num="24" type="method" name="playGame" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="26" type="stmt" count="1"/>
       <line num="27" type="stmt" count="1"/>
       <line num="28" type="stmt" count="1"/>
       <line num="29" type="stmt" count="1"/>
-      <line num="37" type="method" name="rollDiceAgainstLion" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="39" type="stmt" count="0"/>
-      <line num="41" type="stmt" count="0"/>
+      <line num="30" type="stmt" count="1"/>
+      <line num="38" type="method" name="rollDiceAgainstLion" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="40" type="stmt" count="0"/>
       <line num="42" type="stmt" count="0"/>
       <line num="43" type="stmt" count="0"/>
       <line num="44" type="stmt" count="0"/>
       <line num="45" type="stmt" count="0"/>
-      <line num="47" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
       <line num="48" type="stmt" count="0"/>
       <line num="49" type="stmt" count="0"/>
-      <line num="51" type="stmt" count="0"/>
-      <line num="59" type="method" name="rollDiceAndGetSum" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="61" type="stmt" count="1"/>
+      <line num="50" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="60" type="method" name="rollDiceAndGetSum" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="62" type="stmt" count="1"/>
       <line num="63" type="stmt" count="1"/>
       <line num="64" type="stmt" count="1"/>
-      <line num="71" type="method" name="getData" visibility="public" complexity="1" crap="1" count="2"/>
-      <line num="73" type="stmt" count="2"/>
-      <metrics loc="75" ncloc="50" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="10" elements="24" coveredelements="13"/>
+      <line num="65" type="stmt" count="1"/>
+      <line num="72" type="method" name="getData" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="74" type="stmt" count="2"/>
+      <metrics loc="76" ncloc="51" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="10" elements="24" coveredelements="13"/>
     </file>
     <file name="C:\Users\Admin\dbwebb-kurser\mvc\me\proj\app\Classes\Adventure\AdventureRoom.php">
       <class name="App\Classes\Adventure\AdventureRoom" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
       </class>
-      <line num="18" type="method" name="getOneRoom" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="20" type="stmt" count="1"/>
+      <line num="19" type="method" name="getOneRoom" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="21" type="stmt" count="1"/>
       <line num="22" type="stmt" count="1"/>
       <line num="30" type="method" name="getRoomAndPath" visibility="public" complexity="1" crap="1" count="1"/>
@@ -44,7 +43,8 @@
       <line num="33" type="stmt" count="1"/>
       <line num="34" type="stmt" count="1"/>
       <line num="35" type="stmt" count="1"/>
-      <metrics loc="37" ncloc="24" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
+      <line num="36" type="stmt" count="1"/>
+      <metrics loc="38" ncloc="25" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="9" coveredelements="9"/>
     </file>
     <file name="C:\Users\Admin\dbwebb-kurser\mvc\me\proj\app\Classes\Dice\Dice.php">
       <class name="App\Classes\Dice\Dice" namespace="global">
@@ -239,9 +239,13 @@
     </file>
     <file name="C:\Users\Admin\dbwebb-kurser\mvc\me\proj\app\Models\Room.php">
       <class name="App\Models\Room" namespace="global">
-        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
       </class>
-      <metrics loc="33" ncloc="14" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <line num="36" type="method" name="paths" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="41" type="method" name="findWherePrimaryKey" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="43" type="stmt" count="1"/>
+      <metrics loc="45" ncloc="26" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="4" coveredelements="4"/>
     </file>
     <file name="C:\Users\Admin\dbwebb-kurser\mvc\me\proj\app\Models\RoomToRoom.php">
       <class name="App\Models\RoomToRoom" namespace="global">
@@ -309,6 +313,6 @@
       <line num="62" type="stmt" count="5"/>
       <metrics loc="63" ncloc="38" classes="1" methods="2" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="14" elements="17" coveredelements="15"/>
     </file>
-    <metrics files="26" loc="991" ncloc="634" classes="17" methods="37" coveredmethods="26" conditionals="0" coveredconditionals="0" statements="115" coveredstatements="78" elements="152" coveredelements="104"/>
+    <metrics files="26" loc="1005" ncloc="648" classes="18" methods="39" coveredmethods="28" conditionals="0" coveredconditionals="0" statements="117" coveredstatements="80" elements="156" coveredelements="108"/>
   </project>
 </coverage>
