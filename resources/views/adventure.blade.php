@@ -17,7 +17,7 @@ $diceHand = $data['diceHand'] ?? false;
     </div>
         <form method="post" action="roll">
             @csrf
-            <input type="submit" name="submit" value="{{ $message }}">
+            <input type="submit" name="submit" value="{{ $data['message'] }}">
         </form>
     @else
     <div class="path">
