@@ -8,12 +8,11 @@
 
 This is a protected created as examination in the course DV1608 V21 lp4 Objektorienterade webbteknologier, Webbprogrammerin Blekinge Tekniska Högskola.
 
-The project is built with the help of the framework [Laravel](https://laravel.com/) <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="200"></a></p>
+The project is built with the help of the framework [Laravel](https://laravel.com/) <p align="right"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="200"></a></p>
 
 The main focus of this project is an adventure game, where you travel through the wood in search of the Treasure.
 
-<img src="public/img/for_readme.jpg" alt="game" width="350"/>
-<img src="public/img/for_readme2.jpg" alt="game" width="350"/>
+<img src="public/img/for_readme.jpg" alt="game" width="350"/> <img src="public/img/for_readme2.jpg" alt="game" width="350"/>
 
 
 
@@ -37,11 +36,19 @@ make test
 ```
 
 ## Class, interface, trait
-The following classes exists.
+The following classes and traits exists.
 
-| Class, interface, trait            | Description |
+| Class, trait                       | Description |
 |------------------------------------|-------------|
-| `App\Classes\Adventure\Adventure`            | A class that takes care of the game logic  |
-| `App\Classes\Adventure\AdventureRoom`        | A trait containing metohods for getting information about room and paths from database |
+| `App\Classes\Adventure\Adventure`            | A class that takes care of the game logic.  |
+| `App\Classes\Adventure\AdventureRoom`        | A trait containing metohods for getting information about room and paths from database. |
 | `App\Class\Dice\Dice`                        | A class representing a dice.
 | `App\Class\Dice\DiceHand`                    | A class containing logic for throwing dice.
+
+## Models
+The following database models exists.
+
+| Model                       | Description |
+|------------------------------------|-------------|
+| `App\Models\Room`            | Model representing the rooms in the adventure game.  |
+| `App\Models\RoomToRoom`           | Model representing the paths between the rooms. |
