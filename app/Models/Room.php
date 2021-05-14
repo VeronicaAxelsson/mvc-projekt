@@ -17,6 +17,7 @@ class Room extends Model
 {
     // use HasFactory;
 
+    protected $primaryKey = 'id';
     /**
      * The table associated with the model.
      *
@@ -30,4 +31,15 @@ class Room extends Model
     * @var bool
     */
     public $timestamps = false;
+
+
+    public function paths()
+    {
+        return $this->hasMany(RoomToRoom::class, "room_1");
+    }
+
+    public function findWherePrimaryKey($value)
+    {
+        return $this->find($value);
+    }
 }
