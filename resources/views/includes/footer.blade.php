@@ -1,6 +1,7 @@
 </main>
 <footer>
-    <p>This is the footer.</p>
+    <p>Slutprojekt i kursen mvc</p>
+    <p>Veronica Axelsson (Veax20)</p>
 </footer>
 </body>
 </html>

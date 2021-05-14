@@ -1,58 +1,37 @@
-<?php
 
-/**
- * View for Dice.
- */
-
-declare(strict_types=1);
-
-var_dump($data);
-$rooms = $data['rooms'] ?? [];
-// $roomId = $data['roomId'] ?? "";
+@php
+$img =  $data['room']['img'];
 $diceHand = $data['diceHand'] ?? false;
-$classes = $data['classes'] ?? [];
-$diceSum = $data['diceSum'] ?? null;
-$message = $data['message'] ?? null;
-$roomAndPath = $data['roomAndPath'] ?? [];
-// var_dump($diceHand);
-// var_dump($roomId);
-// var_dump($classes);
-// var_dump($_POST);
-// var_dump($rooms);
-?>
-    <?php foreach ($rooms as $room) {
-        $img =  $room['img'] ?>
-    <div class="adventure-room">
-        <h1><?= $room['name'] ?></h1>
-        <img src="{{ url('img/'). '/'.$img }}" alt="<?= $room['img'] ?>">
-        <p><?= $room['description'] ?></p>
-    </div>
-    <?php } ?>
+@endphp
 
-    <?php if ($diceHand) : ?>
+    <div class="adventure-room">
+        <h1>{{ $data['room']['name'] }}</h1>
+        <img src="{{ url('img/'). '/'.$img }}" alt="{{ $data['room']['img'] }}">
+        <p>{{ $data['room']['description'] ?? "" }}</p>
+
+     @if ($diceHand)
         <div class="dice">
-        <?php
-        foreach ($classes as $class) {
-            ?>
-            <i class="dice-sprite <?= $class ?>"></i>
-            <?php
-        }
-        ?>
+        @foreach ($data['classes'] as $class)
+            <i class="dice-sprite {{  $class }}"></i>
+        @endforeach
     </div>
         <form method="post" action="roll">
             @csrf
-            <input type="submit" name="submit" value="<?=$message?>">
+            <input type="submit" name="submit" value="{{ $message }}">
         </form>
-    <?php else : ?>
-        <?php foreach ($roomAndPath as $room) { ?>
+    @else
+    <div class="path">
+        @foreach ($data['roomAndPath'] as $nextRoom)
     <form method="post" action="room">
         @csrf
-        <input type="submit" name="description" value="<?=$room['description']?>">
-        <input type="hidden" name="id" value="<?=$room['room_2']?>">
+        <input type="submit" name="description" value="{{ $nextRoom['description'] }}">
+        <input type="hidden" name="id" value="{{ $nextRoom['room_2'] }}">
     </form>
-        <?php } ?>
-    <?php endif; ?>
+    @endforeach
+    @endif
+    </div>
 
-<?php if ($rooms[0]['name'] === 'Game over' || $rooms[0]['name'] === 'Skatten') : ?>
-    <a href="{{url('/adventure')}}">Tillbaka till start</a>
-<?php endif; ?>
+    @if ($data['room']['name'] === 'Game over' || $data['room']['name'] === 'Skatten')
+        <a href="{{url('/adventure')}}">Tillbaka till start</a>
+    @endif
+    </div>
