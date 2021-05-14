@@ -6,7 +6,7 @@ use App\Classes\Adventure\Adventure;
 use App\Http\Controllers\AdventureController;
 use Tests\TestCase;
 
-// use ReflectionClass;
+use ReflectionClass;
 
 /**
  * Test cases for class Dice
@@ -26,7 +26,7 @@ class AdventureControllerTest extends TestCase
     }
 
         /**
-     * Check that the roll action returns a response.
+     * Check that the index action returns a view.
      * @runInSeparateProcess
      */
     public function testControllerIndexAction()
@@ -38,7 +38,7 @@ class AdventureControllerTest extends TestCase
     }
 
     /**
-     * Check that the end action returns a response.
+     * Check that the next room action returns a response.
      * @runInSeparateProcess
      */
     public function testNextRoomAction()
@@ -50,7 +50,7 @@ class AdventureControllerTest extends TestCase
     }
 
     /**
-     * Check that the end action returns a response.
+     * Check that the next room action with id 4 returns a response.
      * @runInSeparateProcess
      */
     public function testNextRoomActionWithRoomId4()
@@ -63,19 +63,18 @@ class AdventureControllerTest extends TestCase
 
 
     /**
-     * Check that the end action returns a response.
+     * Check that the guest action returns a response.
      * @runInSeparateProcess
      */
     public function testQuestAction()
     {
         $res = $this->get('/adventure/quest', ['id' => 4]);
-
         /* Test status code*/
         $this->assertEquals(200, $res->getStatusCode());
     }
 
     /**
-     * Check that the reset action returns a response.
+     * Check that the play againts lion action returns a response.
      * @runInSeparateProcess
      */
     public function testPlayAgainstLionAction()
@@ -89,20 +88,48 @@ class AdventureControllerTest extends TestCase
         /* Test response*/
         $this->assertInstanceOf($exp, $res);
     }
-    //
-    // /**
-    //  * Check that the newRound action returns a response.
-    //  * @runInSeparateProcess
-    //  */
-    // public function testControllerNewRoundAction()
-    // {
-    //     $this->withSession(['game21' => new Game()]);
-    //     $exp = "\Illuminate\Http\RedirectResponse";
-    //     $res = $this->controller->newRound();
-    //
-    //     /* Test status code*/
-    //     $this->assertEquals(302, $res->getStatusCode());
-    //     /* Test response*/
-    //     $this->assertInstanceOf($exp, $res);
-    // }
+
+    /**
+     * Check that the play againts lion action returns a response when player wins.
+     * @runInSeparateProcess
+     */
+    public function testPlayAgainstLionWhenPlayerWins()
+    {
+        $this->withSession(['adventure' => new Adventure()]);
+
+        $reflector = new ReflectionClass(session('adventure'));
+        $reflectorProperty = $reflector->getProperty("data");
+        $reflectorProperty->setAccessible(true);
+        $reflectorProperty->setValue(session('adventure'), ['playerSum' => 12]);
+
+        $exp = "\Illuminate\Http\RedirectResponse";
+        $res = $this->controller->playAgainstLion();
+
+        /* Test status code*/
+        $this->assertEquals(302, $res->getStatusCode());
+        /* Test response*/
+        $this->assertInstanceOf($exp, $res);
+    }
+
+    /**
+     * Check that the play againts lion action returns a response when lion wins.
+     * @runInSeparateProcess
+     */
+    public function testPlayAgainstLionWhenLionrWins()
+    {
+        $this->withSession(['adventure' => new Adventure()]);
+
+        $reflector = new ReflectionClass(session('adventure'));
+        $reflectorProperty = $reflector->getProperty("data");
+        $reflectorProperty->setAccessible(true);
+        $reflectorProperty->setValue(session('adventure'), ['playerSum' => 1]);
+
+        $exp = "\Illuminate\Http\RedirectResponse";
+        $res = $this->controller->playAgainstLion();
+
+        /* Test status code*/
+        $this->assertEquals(302, $res->getStatusCode());
+        /* Test response*/
+        $this->assertInstanceOf($exp, $res);
+    }
 }
