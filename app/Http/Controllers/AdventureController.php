@@ -9,7 +9,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Classes\Dice\DiceHand;
-use App\Classes\Adventure\Adventure;
+use App\Classes\Adventure\TreasureAdventure;
 
 /**
  * Controller for the index route.
@@ -37,7 +37,7 @@ class AdventureController extends Controller
     public function quest(Request $request)
     {
         if (session()->missing('adventure')) {
-            session()->put('adventure', new Adventure());
+            session()->put('adventure', new TreasureAdventure());
         }
 
         $roomId = $request->query('id') ?? 1;

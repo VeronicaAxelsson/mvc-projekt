@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Classes\Adventure;
 
 use App\Models\Room;
@@ -7,7 +9,7 @@ use App\Models\RoomToRoom;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- *  Adventure class
+ *  Adventure Room trait
  */
 trait AdventureRoom
 {
