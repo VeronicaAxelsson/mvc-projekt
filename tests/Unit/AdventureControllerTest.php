@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Unit;
 
-use App\Classes\Adventure\Adventure;
+use App\Classes\Adventure\TreasureAdventure;
 use App\Http\Controllers\AdventureController;
 use Tests\TestCase;
-
 use ReflectionClass;
 
 /**
@@ -31,7 +32,7 @@ class AdventureControllerTest extends TestCase
      */
     public function testControllerIndexAction()
     {
-        $this->withSession(['adventure' => new Adventure()]);
+        $this->withSession(['adventure' => new TreasureAdventure()]);
         $exp = "\Illuminate\View\View";
         $res = $this->controller->index();
         $this->assertInstanceOf($exp, $res);
@@ -61,7 +62,6 @@ class AdventureControllerTest extends TestCase
         $this->assertEquals(302, $res->getStatusCode());
     }
 
-
     /**
      * Check that the guest action returns a response.
      * @runInSeparateProcess
@@ -79,7 +79,7 @@ class AdventureControllerTest extends TestCase
      */
     public function testPlayAgainstLionAction()
     {
-        $this->withSession(['adventure' => new Adventure()]);
+        $this->withSession(['adventure' => new TreasureAdventure()]);
         $exp = "\Illuminate\Http\RedirectResponse";
         $res = $this->controller->playAgainstLion();
 
@@ -95,7 +95,7 @@ class AdventureControllerTest extends TestCase
      */
     public function testPlayAgainstLionWhenPlayerWins()
     {
-        $this->withSession(['adventure' => new Adventure()]);
+        $this->withSession(['adventure' => new TreasureAdventure()]);
 
         $reflector = new ReflectionClass(session('adventure'));
         $reflectorProperty = $reflector->getProperty("data");
@@ -117,7 +117,7 @@ class AdventureControllerTest extends TestCase
      */
     public function testPlayAgainstLionWhenLionrWins()
     {
-        $this->withSession(['adventure' => new Adventure()]);
+        $this->withSession(['adventure' => new TreasureAdventure()]);
 
         $reflector = new ReflectionClass(session('adventure'));
         $reflectorProperty = $reflector->getProperty("data");

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Classes\Adventure;
 
 use PHPUnit\Framework\TestCase;
@@ -17,7 +19,7 @@ class AdventureTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->adventure = new Adventure();
+        $this->adventure = new TreasureAdventure();
         $this->assertInstanceOf("\App\Classes\Adventure\Adventure", $this->adventure);
     }
 
@@ -35,19 +37,4 @@ class AdventureTest extends TestCase
         $res = $this->adventure->rollDiceAndGetSum(1);
         $this->assertIsInt($res);
     }
-
-    // /**
-    //  * Check that average returns the average of set sum
-    //  */
-    // public function testAverageOfValues()
-    // {
-    //     $reflector = new ReflectionClass($this->diceHand);
-    //     $reflectorSum = $reflector->getProperty("sum");
-    //     $reflectorSum->setAccessible(true);
-    //     $reflectorSum->setValue($this->diceHand, 15);
-    //
-    //     $res = $this->diceHand->average();
-    //     $exp = 3;
-    //     $this->assertEquals($exp, $res);
-    // }
 }
