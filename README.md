@@ -18,7 +18,7 @@ The main focus of this project is an adventure game, where you travel through th
 
 ## Table of content
 * [Development](#development)
-* [Class, interface, trait](#class-interface-trait)
+* [Class, trait](#class-trait)
 * [Models](#models)
 * [Controllers](#controllers)
 
@@ -30,7 +30,7 @@ make install
 make test
 ```
 
-## Class, interface, trait
+## Class, trait
 The following classes and traits exists.
 
 | Class, trait                       | Description |
