@@ -63,17 +63,6 @@ class AdventureControllerTest extends TestCase
     }
 
     /**
-     * Check that the quest action returns a response.
-     * @runInSeparateProcess
-     */
-    public function testQuestAction()
-    {
-        $res = $this->get('/adventure/quest', ['id' => 4]);
-        /* Test status code*/
-        $this->assertEquals(200, $res->getStatusCode());
-    }
-
-    /**
      * Check that the play againts lion action returns a response.
      * @runInSeparateProcess
      */
