@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-// use App\Models\Room;
-// use App\Models\RoomToRoom;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Classes\Dice\DiceHand;
