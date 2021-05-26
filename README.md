@@ -17,17 +17,10 @@ The main focus of this project is an adventure game, where you travel through th
 
 
 ## Table of content
-* [Play game](#play-game)
 * [Development](#development)
 * [Class, interface, trait](#class-interface-trait)
 * [Models](#models)
 * [Controllers](#controllers)
-
-
-
-## Play game
-The game can be played at: http://www.student.bth.se/~veax20/dbwebb-kurser/mvc/me/proj/public/adventure
-
 
 ## Development
 Clone repo and install local enviroment to work as a developer with make.
