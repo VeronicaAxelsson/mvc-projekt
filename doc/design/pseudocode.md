@@ -3,7 +3,7 @@ Get first room by id = 1
 Get paths where room_1 is equal to 1
 WHILE number of paths are greater than 0
     let player chose path
-    Set roomId to chosen the value of 2oom_2 of the chosen path
+    Set roomId to the value of room_2 of the chosen path
     Get next room by roomId
     Get paths where room_1 is equal to roomId
 END WHILE
