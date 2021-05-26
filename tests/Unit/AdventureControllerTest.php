@@ -63,7 +63,7 @@ class AdventureControllerTest extends TestCase
     }
 
     /**
-     * Check that the guest action returns a response.
+     * Check that the quest action returns a response.
      * @runInSeparateProcess
      */
     public function testQuestAction()
