@@ -10,7 +10,7 @@ This is a protected created as examination in the course DV1608 V21 lp4 Objektor
 
 The project is built with the help of the framework [Laravel](https://laravel.com/) <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="200">
 
-The main focus of this project is an adventure game, where you travel through the wood in search of the Treasure.
+The main focus of this project is an adventure game, where you travel through the woods in search of the Treasure.
 
 <img src="public/img/for_readme.jpg" alt="game" width="350"/> <img src="public/img/for_readme2.jpg" alt="game" width="350"/>
 
@@ -26,7 +26,7 @@ The main focus of this project is an adventure game, where you travel through th
 
 
 ## Play game
-The game can be played at:
+The game can be played at: http://www.student.bth.se/~veax20/dbwebb-kurser/mvc/me/proj/public/adventure
 
 
 ## Development
